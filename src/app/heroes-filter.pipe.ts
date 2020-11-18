@@ -1,7 +1,8 @@
 import { IterableDiffers, Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'heroesFilter'
+  name: 'heroesFilter',
+  pure: false
 })
 export class HeroesFilterPipe implements PipeTransform {
 
@@ -11,4 +12,5 @@ export class HeroesFilterPipe implements PipeTransform {
     }
     return heroes.filter(hero => hero.favorite);
   }
+
 }
