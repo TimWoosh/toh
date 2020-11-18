@@ -66,8 +66,46 @@ button:hover {
 
 button.delete {
   position: relative;
-  left: 194px;
-  top: -32px;
+  left: 180px;
+  top: -34px;
   background-color: gray !important;
   color: white;
+}
+
+button.non-fav {
+  position: relative;
+  background-color: grey;
+  width: 24px;
+  height: 24px;
+  left: 160px;
+  top: -34px;
+}
+
+button.fav {
+  position: relative;
+  background-color:lightcoral;
+  width: 24px;
+  height: 24px;
+  left: 160px;
+  top: -34px;
+}
+
+mat-icon {
+  position: relative;
+  left: -10px;
+  top: -4px;
+  /* width: 18px !important;
+  height: 18px !important; */
+}
+
+mat-icon.non-fav {
+  color: #cccccc;
+}
+
+mat-icon.non-fav :hover {
+  color: darkred;
+}
+
+mat-icon.fav {
+  color: darkred;
 }

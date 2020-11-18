@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatButton, MatButtonModule } from '@angular/material/button';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
@@ -13,6 +16,10 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { TimedDialogComponent } from './timed-dialog/timed-dialog.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TimedDialogService } from './timed-dialog.service';
+import { HeroesFilterPipe } from './heroes-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +28,9 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
     HeroDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    TimedDialogComponent,
+    HeroesFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -30,9 +39,15 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatGridListModule
   ],
-  providers: [],
+  exports: [TimedDialogComponent],
+  //entryComponents: [TimedDialogComponent],
+  providers: [TimedDialogService],
   bootstrap: [AppComponent]
 })
 
