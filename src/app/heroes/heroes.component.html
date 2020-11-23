@@ -1,6 +1,7 @@
 <h2>My Heroes</h2>
-
-
+<button mat-fab aria-label="Example icon-button with a heart icon">
+  <mat-icon>favorite</mat-icon>
+</button>
 <div>
     <label>Hero name:
       <input #heroName />
@@ -16,12 +17,12 @@
     <ul class="heroes">
       <li *ngFor="let hero of heroes" style="position: relative; float: left;">
           <a routerLink="/detail/{{hero.id}}">
-              <span class="badge">{{hero.id}}</span> {{hero.name}} - {{(hero.favorite) ? 'favorite' : ''}}
+              <span class="badge">{{hero.id}}</span> {{hero.name}}
           </a>
-          <button class="mat-button-base mat-fab"  [ngClass]="(hero.favorite) ? 'fav' : 'non-fav'" (click)="setFavorite(hero)">
+          <button mat-fab [ngClass]="(hero.favorite) ? 'fav' : 'non-fav'" (click)="setFavorite(hero)">
             <mat-icon _ngcontent-pyd-c134="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" [ngClass]="(hero.favorite) ? 'fav' : 'non-fav'" aria-hidden="true" data-mat-icon-type="font">favorite</mat-icon>
           </button>
-          <button class="delete" title="delete hero"
+          <button class="delete toh" title="delete hero"
           (click)="startDelete(hero)">x</button>        
       </li>
     </ul> 
